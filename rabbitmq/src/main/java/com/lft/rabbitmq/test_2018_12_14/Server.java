@@ -13,7 +13,7 @@ import java.util.concurrent.TimeoutException;
  */
 public class Server {
 
-    public final static String QUEUE_NAME = "rabbitMQ.test";
+    public final static String QUEUE_NAME = "hello";
 
     public static void main(String[] args) throws IOException, TimeoutException, InterruptedException {
         String message = "Hello RabbitMQ";
