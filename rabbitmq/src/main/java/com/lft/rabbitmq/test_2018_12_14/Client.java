@@ -32,7 +32,8 @@ public class Client {
         // 创建连接工厂
         ConnectionFactory factory = new ConnectionFactory();
         //设置RabbitMQ地址
-        factory.setHost("192.168.42.128");
+        //factory.setHost("192.168.42.128");
+        factory.setHost("192.168.218.129");
         factory.setUsername("admin");
         factory.setPassword("123456");
         //创建一个新的连接
