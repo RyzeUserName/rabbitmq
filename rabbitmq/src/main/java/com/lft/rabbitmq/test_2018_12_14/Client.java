@@ -20,20 +20,21 @@ public class Client {
         channel.queueDeclare(QUEUE_NAME, false, false, true, null);
         System.out.println("Customer Waiting Received messages");
         //回调
-        DeliverCallback callback=(s, delivery) -> {
+        DeliverCallback callback = (s, delivery) -> {
             String message = new String(delivery.getBody(), "UTF-8");
-            System.out.println("Customer Received '" + message + "'");
+            System.out.println("Customer Received '" + message + "'" + System.currentTimeMillis());
         };
         //自动回复队列应答 -- RabbitMQ中的消息确认机制
-        channel.basicConsume(QUEUE_NAME, true, callback,s -> {});
+        channel.basicConsume(QUEUE_NAME, true, callback, s -> {
+        });
     }
 
     public static Connection getConnection() throws IOException, TimeoutException {
         // 创建连接工厂
         ConnectionFactory factory = new ConnectionFactory();
         //设置RabbitMQ地址
-        //factory.setHost("192.168.42.128");
-        factory.setHost("192.168.218.129");
+        factory.setHost("192.168.42.128");
+        //factory.setHost("192.168.218.129");
         factory.setUsername("admin");
         factory.setPassword("123456");
         //创建一个新的连接
